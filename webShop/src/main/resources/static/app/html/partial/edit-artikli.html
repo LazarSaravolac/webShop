@@ -1,0 +1,24 @@
+<div ng-controller="editACtrl">
+<h1 style="margin-left:30%">Izmeni artikal</h1>
+	<br/>
+	<form>
+		<div style="margin-left:30%">
+		<div class="form-group">
+			<label for="naziv1">Naziv</label>
+			<input class="form-control" id="naziv1"  ng-model="novArtikl.naziv" style="width:30%">
+		</div>
+		
+		<div class="form-group">
+			<label for="organizator1">Cena</label>
+			<input class="form-control" id="organizator1"  ng-model="novArtikl.cena" style="width:30%"> 
+		</div>
+		<br/>
+		
+		<button class="btn btn-warning" ng-click="edit()">sacuvaj</button>
+	
+	</form>
+		</div>
+
+
+
+</div>

@@ -1,0 +1,110 @@
+<div ng-controller="osobeCtrl">
+<div style="float:left;width:30%;background-color:grey;margin-top:60px;margin-bottom:100px;padding:40px;border-radius:30px;color:white;text-align:center">
+<br/>
+<form>
+		<p style="font-size:34px;font-style:bold">Dodaj korisnika</p>
+		<br/>
+		<br />
+<br />
+<br />
+		<div class="form-group">
+			<label for="naziv">Ime</label>
+			<input class="form-control" id="naziv"  ng-model="novaOsoba.ime">
+		</div>
+		<div class="form-group">
+			<label for="organizator">Prezime</label>
+			<input class="form-control" id="organizator"  ng-model="novaOsoba.prezime">
+		</div>
+		<div class="form-group">
+			<label for="datumPocetka">Grad</label>
+			<input class="form-control" id="datumPocetka"  ng-model="novaOsoba.grad">
+		</div>
+		<div class="form-group">
+			<label for="cenaKarte">Novac</label>
+			<input class="form-control" id="cenaKarte"  ng-model="novaOsoba.novac">
+		</div>
+		
+		<button class="btn btn-primary" ng-click="dodaj()">Dodaj</button>
+	
+	</form>
+</div>
+
+<div style="width:23%;float:right;background-color:grey;padding:40px;border-radius:30px;color:white;text-align:center;margin-top:5.5%">
+<br/>
+<form>
+		<p style="font-size:34px;font-style:bold">Prenos sredstava</p>
+				
+
+<br />
+<br />
+		<div class="form-group">
+			<label for="kompanijaNA">Posiljalac</label> <select
+				ng-model="prenos.o1" class="form-control" id="kompanijaNA" >
+				<option ng-repeat="o in osobe" value="{{o.id}}">{{o.ime}} {{o.prezime}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="kompanijaNA1">Primalac</label> <select
+				ng-model="prenos.o2" class="form-control" id="kompanijaNA1" >
+				<option ng-repeat="o in osobe" value="{{o.id}}">{{o.ime}} {{o.prezime}}</option>
+			</select>
+		</div>
+				
+<br />
+		<button class="btn btn-warning" ng-click="obrni()"><span style="font-size:13px;">OBRNI</span></button>
+<br />
+		<br/>
+		<div class="form-group">
+			<label for="naziv11">Iznos</label>
+			<input class="form-control" id="naziv11"  ng-model="prenos.iznos">
+		</div>
+				
+
+		
+		<button class="btn btn-primary" ng-click="prenos(prenos.o1,prenos.o2,prenos.iznos)">Prenesi</button>
+	
+	</form>
+</div>
+
+<div style="background-color:rgba(255, 0, 0, 0.5);width:40%;margin-right:3%;height:40px;text-align:center;margin-top:6%;font-size:30px;border-radius:10px;color:white;float:right">
+
+<p style="background-color:white;color:black">Pretrazi po 
+
+			<label for="naziv">Imenu</label>
+			<input class="form-control" id="naziv"  ng-model="osobes.ime" style="margin-left:10%;width:80%">
+			
+			<button class="btn btn-warning" ng-click="pretragaK()" style="margin-top:5%;width:14%">Trazi</button>
+		
+</p>
+
+Korisnici
+<br/>
+<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Ime</th>
+				<th>Prezime</th>
+				<th>Grad</th>
+				<th>Stanje</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="o in osobe">
+				
+				<td>{{o.ime}}</td>
+				<td>{{o.prezime}}</td>
+				<td>{{o.grad}}</td>
+				<td>{{o.novac}} din</td>	
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+
+
+
+ 
+</div>

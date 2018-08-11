@@ -1,0 +1,55 @@
+<div ng-controller="osobeCtrl">
+<div style="width:20%;float:left;margin-left:10%;background-color:grey;margin-top:60px;margin-bottom:100px;padding:40px;border-radius:30px;color:white;text-align:center;height:360px;">
+
+<form>
+		<p style="font-size:34px;font-style:bold">Dodaj artikl</p>
+		
+		<div class="form-group">
+			<label for="naziv1">Naziv</label>
+			<input class="form-control" id="naziv1"  ng-model="novArt.naziv">
+		</div>
+		<div class="form-group">
+			<label for="organizator1">Cena</label>
+			<input class="form-control" id="organizator1"  ng-model="novArt.cena">
+		</div>
+		
+		
+		<button class="btn btn-primary"  confirmed-click="dodajArt()" 
+    ng-confirm-click="Da li si siguran da zelis nov artikal u korpi?">Dodaj</button>
+	
+	</form>
+</div>
+<div style="float:right;background-color:rgba(255, 0, 0, 0.7);margin-top:6.6%;width:50%;height:40px;text-align:center;font-size:30px;border-radius:10px;color:white">Naziv artikla
+<br/>
+<div class="form-group">
+			<label for="naziv">Naziv artikla</label>
+			<input class="form-control" id="naziv"  ng-model="pPretrage.naziv" title="unesi naziv artikla">
+			<br/>
+			<button class="btn btn-warning" ng-click="pretraga()">Trazi</button>
+		</div>
+ <button ng-disabled="page == 0" ng-click="go(-1)" class="btn btn-primary">Prethodna</button>
+		<button ng-disabled="page == totalPages - 1" ng-click="go(1)" class="btn btn-primary">Sledeća</button>
+		
+<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Naziv</th>
+				<th>Cena</th>
+			
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="a in art1 | orderBy: 'cena'">
+				
+				<td>{{a.naziv}}</td>
+				<td>{{a.cena}} din</td>
+				<td><button class="btn btn-warning" ng-click="goToEdit(a.id)">Izmena</button></td>
+				<td><button class="btn btn-danger" ng-click="obrisiArt(a.id)">Obrisi</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+</div>
